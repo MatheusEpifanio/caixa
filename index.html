@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/6b360efd70.js" 
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Caixas</title>
+    
+</head>
+<body>
+    
+        <header>
+            <div id="area-menu">
+                <div id="menu">
+                    <nav>
+                        <ul>
+                            <li><a href="#caixa">Caixa</a></li>
+                            <li><a id="newcaixa" href="">Novo Caixa 
+                                <button onclick="fecharAdd()" id="fechar">
+                                    <i class="fa-solid fa-xmark fa-1x white-icon"></i>
+                                </button>
+                            </li>
+                            <li style="display:none ;">
+                                <a href="teste.html">teste</a>
+                            </li>
+                        </ul>
+                        
+                        </a> 
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        
+        <div id="area-pesq">
+                
+                <div id="pesq">
+                    <button id="add" >
+                        <i class="fa-solid fa-circle-plus fa-lg green-icon"></i></button>
+                    <button >
+                        <i class="fa-solid fa-rotate fa-lg"></i>
+                    </button>
+                    <button>
+                        <i class="fa-solid fa-arrow-rotate-left fa-lg"></i>
+                    </button>
+                    <div id="center">
+                            <input type="search" name="" id="">
+                            <button>
+                                 <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>    
+                        </div>     
+                        <input type="checkbox" name="" id="ativo">
+                        <label for="ativo">Somente ativos</label>
+                    </div>
+            </div>
+
+            <div class="container">
+                <div class="borda">   
+                    <table>
+                            <thead>
+                                <tr>
+                                    <th id ="alterar"scope="col">Alterar</th>
+                                    <th id = "exluir" scope="col">Exluir</th>
+                                    <th id = "codigo" scope="col">Código</th>
+                                    <th id = "nome" scope="col">Nome</th>
+                                    <th id = "status" scope="col">Status</th>
+                                    <th id = "id" scope="col">ID</th>
+                                </tr>
+                            </thead>
+                            <tr>
+                                <th id ="alterar" >
+                                    <button>
+                                        <i class="fa-solid fa-pen-to-square black-icon"></i>
+                                    </button>
+                                </th>
+                                <th id = "exluir">
+                                    <button>
+                                        <i class="fa-solid fa-trash-can"></i>
+                                    </button>
+                                </th>
+                                <th id = "codigo" >aa</th>
+                                <th id = "nome">aa</th>
+                                <th id = "status"><i class="fa-solid fa-check green-icon"></i></th>
+                                <th id = "id">aa</th>
+                            </tr>
+                        </table>
+
+                </div>
+            </div>
+       
+
+            <div class="modal-add" id="modal-add">
+                <div class="modal-container">
+                    <div class="modal-form">
+                        
+                        <label for="btn-cod">Código</label><br><input type="text" id="txt-cod">
+                        <label for="txtnome">Nome</label><input type="text" id="txtnome">                
+                        <div class="flexbox-r margin-top-5px">
+                            <input  type="checkbox" id="ativo-modal"><label for="ativo-modal">Ativo</label>
+                        </div>
+                    
+                    </div>
+                    <div class="flexbox-r margin-top-10px input-add">
+                        <br><input type="text"> 
+                        <button class="botao-verde" id="add-tab" onclick="addModal()">Adicionar</button>
+                    </div>
+                    <!-- ---------------------------TABELA--------------------------- -->
+                    <div class="margin-top-10px">
+                        
+                        <table >
+                            <thead>
+                                <tr>
+                                    
+                                    <th id = "exluir" scope="col">Exluir</th>
+                                    <th id = "nome" scope="col">Nome</th>
+                                    
+                                    
+                                </tr>
+                            </thead>
+                            <tbody id="exibir">
+                                <!--<tr>
+                                     <th id = "exluir">
+                                        <button>
+                                            <i class="fa-solid fa-trash-can"></i>
+                                        </button>
+                                    </th>
+                                    <th id = "nome">aa</th>                                
+                                </tr>-->
+                            </tbody>
+                        </table>
+                    
+                    </div> 
+                    <!-- ---------------------------TABELA------------------------- -->
+                   
+                </div>
+                <div class="footer-modal">
+                    <div class="input-footer">
+                        <button id ="gravar" class="botao-verde">Gravar</button>
+                        <button id=fechar class="button-closemodal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        
+    
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="js-index.js"></script>
+
+</body>
+</html>

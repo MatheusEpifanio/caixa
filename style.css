@@ -1,0 +1,400 @@
+:root
+{
+--green-icon: rgb(101, 191, 131);
+--red-ico:red;
+--blue-ico:rgb(56, 93, 157);
+--fundo-main:rgb(240, 240, 240);
+--branco: white;
+--menu: #28465b;
+}
+*
+{
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+
+.borda
+{
+    border: solid 1.5px #d3d3d3;
+    height: 99% ;
+    border-radius: 3px;
+}
+
+
+body,html
+{
+    height: 100%;
+    background-color: var(--fundo-main);
+    box-sizing: border-box;  
+    
+}
+
+a
+{
+    text-decoration: none;
+}
+
+.container
+{
+    
+    height: 82.5%;
+    margin: 5px 5px;
+    padding: 5px;
+    border:  1px solid #d3d3d3;
+    background-color: var(--branco);
+    border-radius: 3px;
+}
+
+button
+{
+    cursor: pointer;
+}
+
+.green-icon
+{
+    color: green
+}
+
+.black-icon
+{
+    color:black
+}
+
+.blue-icon
+{
+    color: rgb(56, 93, 157)
+}
+
+.white-icon
+{
+    color: var(--branco);
+}
+
+
+input[type= "search"],input[type= "text"]
+{
+    border:  1px solid #d3d3d3;
+    border-radius: 3px 0px 0px 3px;
+    height: 25px;
+    padding-left: 5px;
+}
+
+.botao-verde
+{
+    font-size: 12px;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 10px 8px 10px;
+    background-color: var(--green-icon) ;
+    color: var(--branco);
+}
+
+.flexbox-r
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1px;
+}
+
+.margin-top-5px
+{
+    margin-top: 5px;
+}
+
+.margin-top-10px
+{
+    margin-top: 10px;
+}
+
+/* -------------MENU------------- */
+
+#area-menu
+{
+    height: 40px;
+    background-color: var(--menu) ; 
+    border-bottom: 1px solid black;
+   
+
+}
+
+
+ul li
+{
+
+    display: inline-flex;
+    margin-right: -4px;
+
+}
+
+ul li a
+{
+    color: rgb(255, 255, 255);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid black;
+    border-bottom: none;
+    padding: 10px 10px 10px 10px;
+}
+
+#menu nav a button
+{
+ border: none;
+ background:none ;
+}
+
+#menu a:target
+{   
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+}
+
+#menu nav a:visited
+{
+    
+    background-color: white;
+    color: rgb(255, 255, 255);
+    
+}
+
+/* -------------CABECAÇALHO------------- */
+
+
+#area-pesq
+{
+    padding: 5px;
+    margin: 5px 5px;
+    border:  1px solid #d3d3d3;
+    border-radius: 3px;
+    background-color: white;
+}
+
+#pesq
+{
+    display: flex;
+    flex-direction: row; /* direção do eixo principal */
+    justify-content: flex-start; /*alinha o eixo principal */
+    align-items: center;
+    gap: 8px;
+    /* border: 1px black solid; */
+}    
+
+#pesq button
+{
+    border: none;
+    background-color: var(--branco); 
+}
+
+#pesq label
+{
+    font-size: 10px;
+}
+
+#center
+{
+    display: inline-flex;
+    width: 86%;
+    border-radius: 3px;
+}
+
+#center input[type= "search"]
+{
+    width: 100%;
+}
+
+#center button
+{
+   
+    height: 25px;
+    width: 40px;
+    border:  1px solid #d3d3d3;  
+    border-radius: 0px 3px 3px 0px;
+    background-color: #d3d3d3;
+}
+
+/* -------------CABECAÇALHO------------- */
+
+
+/* -------------CONTEÚDO TABELA------------- */
+
+
+
+
+table
+{
+    width: 100%;
+    margin: 0px auto;
+    font-size: 12px;
+    border-collapse: collapse;
+    
+    
+}
+
+th
+{
+    padding: 5px;
+    border: solid 1px rgb(222, 222, 222);
+    
+}
+th button
+{
+    border: none;
+    background-color: white;
+}
+
+thead
+{
+    background-color: rgb(233 233 233);
+}
+
+#alterar
+{
+    width: 8%;
+}
+#exluir
+{
+    width: 8%;
+}
+
+#codigo
+{
+    width: 8%;
+}
+
+#nome
+{
+    width: 60%;
+    text-align: left;
+    
+}
+
+#status
+{
+    width: 8%;
+}
+
+#id
+{
+    width: 8%;
+}
+
+
+/* -------------CONTEÚDO TABELA------------- */
+
+/* -------------MODAL------------- */
+
+
+.modal-add
+{
+  
+    width: 100%;
+    height: 93%;
+    background-color: rgb(240, 240, 240);
+    /* background-color: rgba(0, 0, 0, .1);  fundo com opacidade*/
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0px;
+    top: 7%;
+    /* border: 1px solid red; */
+  
+}
+
+
+.modal-add.mostrar
+{
+    display: block;
+
+}/* quando é delcarado junto(.modal-add.mostrar), significa que o estilo só vai ser aplicado quando a delcaração na tag for desta forma: class = "modal-add mostarar" */
+
+ @keyframes add-animation  /*cria animaçaõ  */
+{
+    from
+    {
+        opacity: 0;
+    }
+    to
+    {
+        opacity: 1;
+
+    }
+}
+
+.motstrar .modal-container
+{
+     animation: add-animation .100s; /*está chamando a aimação criada */
+} /*quando tiver a classe mostrar(ela vai ser inserida pelo js), vai ser colocado animação */
+.button-closemodal
+{
+    padding: 8px 10px 8px 10px;
+    border:  1px solid #d3d3d3;
+    border-radius: 3px;
+    font-size: 12px;
+    
+}
+
+
+
+
+
+.modal-container
+{
+    
+    position: relative;
+    padding: 15px;
+    background-color: var(--branco);
+    margin: 5px 5px;
+    border:  1px solid #d3d3d3;
+}
+
+.modal-container label
+{
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.modal-container input[type = 'text']
+{
+    width: 100%;
+    border:  1px solid #d3d3d3;
+    border-radius: 3px;
+    
+}
+
+.input-add input[type = 'text']
+{
+    height: 20px;
+}
+
+.footer-modal
+{
+    position: absolute;
+    bottom: 0px;
+    background-color: white;
+    width: 100%;
+    
+}
+
+.input-footer
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 5px;
+}
+
+.input-footer button
+{
+    margin-right:  5px;
+}
+
+#newcaixa
+{
+    display: none;
+}
+
+/* -------------MODAL------------- *
