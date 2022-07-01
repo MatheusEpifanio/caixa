@@ -14,14 +14,6 @@
     font-family: Arial, Helvetica, sans-serif; 
 }
 
-.borda
-{
-    border: solid 1.5px #d3d3d3;
-    height: 99% ;
-    border-radius: 3px;
-}
-
-
 body,html
 {
     height: 100%;
@@ -34,6 +26,26 @@ a
 {
     text-decoration: none;
 }
+
+
+.font-weight
+{
+    font-weight: 100;
+}
+
+.borda
+{
+    border: solid 1.5px #d3d3d3;
+    height: 99% ;
+    border-radius: 3px;
+}
+
+.left-text
+{
+ text-align: left;
+}
+
+
 
 .container
 {
@@ -245,6 +257,18 @@ th button
     background-color: white;
 }
 
+.th
+{
+    padding: 5px;
+    border: solid 1px rgb(222, 222, 222);   
+}
+
+.th i
+{
+    border: none;
+    background-color: white;   
+}
+
 thead
 {
     background-color: rgb(233 233 233);
@@ -335,6 +359,7 @@ thead
     font-size: 12px;
     
 }
+
 
 
 
