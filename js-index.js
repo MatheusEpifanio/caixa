@@ -1,12 +1,3 @@
-// var _arrTable = [] // quando declarado fora os valores não vão resetar (USADO EM: addModal)
-
-
-function add()
-{
-    iniciaModal()
-
-}
-
 function iniciaModal()
 {
     const modal = document.getElementById('modal-add')
@@ -18,16 +9,15 @@ function iniciaModal()
 
     function fechar(evento) // ao colocar este parametro a função traz uma descrição do evento(n precisa ter o nome evento isso não é um objeto)
     {
+
         console.log(evento.target) //vai exbir o elemento que recebeu o click
-        if(evento.target.id == 'fechar' || aba.target.id == 'fechar')
+        if(evento.target.id == 'fechar' || aba.target.id == 'fechar' || evento.target.id == 'gravar')
         {
             
             modal.classList.remove('mostrar')
             aba.style.display = 'none'
         }
     }
-     
-    
     // const modalAdd = document.getElementById('add-tab')
     // modalAdd.addEventListener('click',addModal)
     
@@ -38,9 +28,8 @@ function iniciaModal()
 }
 
 const tempCaixa = { //usado só para manipular os registros  por código
-    exluir: "a ",
+    exluir: "v   ",
     nome: "sssss"
-
 }
 
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db')) ?? [] 
@@ -50,7 +39,7 @@ const getLocalStorage = () => JSON.parse(localStorage.getItem('db')) ?? []
 
 function setLocalStorage(dbCaixa)
 {
-    localStorage.setItem("db",JSON.stringify(dbCaixa))//vai inserir os registros no local storage
+    localStorage.setItem('db',JSON.stringify(dbCaixa))//vai inserir os registros no local storage
     //JSON.stringify(reg) - vai transformar objeto que está sendo passado em string 
 }
 
@@ -58,6 +47,7 @@ function addDados(reg)
 {   
     const dbCaixa = getLocalStorage() 
     dbCaixa.push(reg)
+    
     setLocalStorage(dbCaixa) // vai passa a variavel para informar a função setLocalStorage qual valor dever ser setado  
 
 }
@@ -88,7 +78,9 @@ function limparCampos()
     var inputNome = document.querySelector('#txtnome')
     inputNome.value = ' '
 }
+
 exbir()
+
 function adicionarTabModal()
 {//nesse método o item é adicionado apenas no local storage
     var nome = document.querySelector('#txtnome').value
@@ -112,20 +104,15 @@ function criarItem(reg,index)
         <th class="th">
                 <button type = "button" id = "excluir-${index}" class="fa-solid fa-trash-can"></button>
         </th>
-        <th class = "left-text">${reg.nome}</th>
-         
+        <th class = "left-text">${reg.nome}</th>      
      `
-     
-     table.appendChild(newRow)
-     
-
+    table.appendChild(newRow)
 }//cria o item na tabela
 
 function clearTable()
 {
     const rows = document.querySelectorAll('#exibir tr')
     rows.forEach(row => row.parentNode.removeChild(row))
-
 }
 
 function exbir()
@@ -135,10 +122,8 @@ function exbir()
     dbCaixa.forEach(criarItem)// a função for each envia dois parametros o primeiro elemento segundo index 
 }//vai trazer todos os items da tabela
 
-
 function removerDado(evento) // quem passa o evento é addEventListener
 {
-    
     if(evento.target.type == 'button')
     {
         const [acao, index] = evento.target.id.split('-')
@@ -147,15 +132,19 @@ function removerDado(evento) // quem passa o evento é addEventListener
         // e com [acao, index] isso vai salvar separadamente os valores o nome em acao e o index em index 
         //ISSO SE CHAMA DESTRUTURAÇÃO
         
-            const dbCaixa = exibirDados()[index]
-            console.log(dbCaixa);
-            deleteDados(index)
-            exbir()
-        
-        
-        
+        const dbCaixa = exibirDados()[index]
+        console.log(dbCaixa);
+        deleteDados(index)
+        exbir()
     }
 }// irá remover o dado da tabela 
+
+function addCaixa()
+{
+    const dbCaixa = exibirDados()
+    
+}
+
 
 //eventos
 document.querySelector('#add-tab').addEventListener('click',adicionarTabModal)//modal
@@ -163,8 +152,9 @@ document.querySelector('#add-tab').addEventListener('click',adicionarTabModal)//
 document.querySelector('#exibir').addEventListener('click',removerDado)
 
 var _btnadd = document.getElementById('add')
-_btnadd.addEventListener('click',add)//botao de adicionar da modal
+_btnadd.addEventListener('click',iniciaModal)//botao de adicionar da modal
 
+document.querySelector('#gravar').addEventListener('click',addCaixa)
 
 
 

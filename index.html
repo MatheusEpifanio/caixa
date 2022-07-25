@@ -17,7 +17,7 @@
                 <div id="menu">
                     <nav>
                         <ul>
-                            <li><a href="#caixa">Caixa</a></li>
+                            <li><a href="#caixa">Caixas</a></li>
                             <li><a id="newcaixa" href="">Novo Caixa 
                                 <button  id="fechar">
                                     <i class="fa-solid fa-xmark fa-1x white-icon"></i>
@@ -34,13 +34,12 @@
             </div>
         </header>
         
-        
         <div id="area-pesq">
                 
                 <div id="pesq">
                     <button id="add" >
                         <i class="fa-solid fa-circle-plus fa-lg green-icon"></i></button>
-                    <button >
+                    <button id="atualizar">
                         <i class="fa-solid fa-rotate fa-lg"></i>
                     </button>
                     <button>
@@ -70,22 +69,11 @@
                                     <th id = "id" scope="col">ID</th>
                                 </tr>
                             </thead>
-                            <tr>
-                                <th id ="alterar" >
-                                    <button>
-                                        <i class="fa-solid fa-pen-to-square black-icon"></i>
-                                    </button>
-                                </th>
-                                <th id = "exluir">
-                                    <button>
-                                        <i class="fa-solid fa-trash-can"></i>
-                                    </button>
-                                </th>
-                                <th id = "codigo" >aa</th>
-                                <th id = "nome">aa</th>
-                                <th id = "status"><i class="fa-solid fa-check green-icon"></i></th>
-                                <th id = "id">aa</th>
-                            </tr>
+                            <tbody id="corpotable" >
+
+                            
+                            
+                            </tbody>
                         </table>
 
                 </div>
@@ -95,12 +83,14 @@
             <div class="modal-add" id="modal-add">
                 <div class="modal-container">
                     <div class="modal-form">
-                        
-                        <label for="btn-cod">Código</label><br><input type="text" id="txt-cod">
-                        <label for="txtnome">Nome</label><input type="text" id="txtnome">                
-                        <div class="flexbox-r margin-top-5px">
-                            <input  type="checkbox" id="ativo-modal"><label for="ativo-modal">Ativo</label>
-                        </div>
+                        <form id="form">
+                                <label for="btn-cod">Código</label><br><input type="text" id="txtcod" data-index="new" required>
+                                <label for="txtnome">Nome</label><input type="text" id="txtnome" required>
+                                        
+                            <div class="flexbox-r margin-top-5px">
+                                <input type="checkbox" id="ativo-modal"  data-status="ativo"><label for="ativo-modal">Ativo</label>
+                            </div>
+                        </form> 
                     
                     </div>
                     <div class="flexbox-r margin-top-10px input-add">
@@ -143,7 +133,8 @@
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
       crossorigin="anonymous"
     ></script>
-    <script src="js-index.js"></script>
+    <script src="js.js"></script>
+    <!-- <script src="js-index.js"></script> -->
 
 </body>
 </html>

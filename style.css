@@ -14,13 +14,20 @@
     font-family: Arial, Helvetica, sans-serif; 
 }
 
-body,html
+html
+{
+    height: 99%;
+}
+
+body
 {
     height: 100%;
     background-color: var(--fundo-main);
     box-sizing: border-box;  
     
 }
+
+
 
 a
 {
@@ -45,7 +52,11 @@ a
  text-align: left;
 }
 
+.center-text
+{
+ text-align: center;
 
+}
 
 .container
 {
@@ -83,6 +94,10 @@ button
     color: var(--branco);
 }
 
+.red-icon
+{
+    color: var(--red-ico);
+}
 
 input[type= "search"],input[type= "text"]
 {
@@ -190,7 +205,8 @@ ul li a
     flex-direction: row; /* direção do eixo principal */
     justify-content: flex-start; /*alinha o eixo principal */
     align-items: center;
-    gap: 8px;
+    gap: 5px;
+    
     /* border: 1px black solid; */
 }    
 
@@ -241,7 +257,7 @@ table
     margin: 0px auto;
     font-size: 12px;
     border-collapse: collapse;
-    
+    cursor: pointer;
     
 }
 
@@ -249,24 +265,30 @@ th
 {
     padding: 5px;
     border: solid 1px rgb(222, 222, 222);
-    
 }
-th button
+td button
 {
     border: none;
     background-color: white;
 }
-
-.th
+tr:hover
 {
-    padding: 5px;
+    background-color: #e9e9e982;
+    
+}
+
+td
+{
+    padding: 10px;
+    padding-left: 2px;
     border: solid 1px rgb(222, 222, 222);   
 }
 
-.th i
+.selecionado
 {
-    border: none;
-    background-color: white;   
+    background-color: #7baeff;
+    border-bottom: none;
+    border-top: none;
 }
 
 thead
@@ -328,11 +350,23 @@ thead
 }
 
 
+
+
 .modal-add.mostrar
 {
     display: block;
 
 }/* quando é delcarado junto(.modal-add.mostrar), significa que o estilo só vai ser aplicado quando a delcaração na tag for desta forma: class = "modal-add mostarar" */
+
+.modal-container
+{
+    position: relative;
+    padding: 15px;
+    background-color: var(--branco);
+    margin: 5px 5px;
+    border:  1px solid #d3d3d3;
+}
+
 
  @keyframes add-animation  /*cria animaçaõ  */
 {
@@ -346,6 +380,9 @@ thead
 
     }
 }
+
+
+
 
 .motstrar .modal-container
 {
@@ -365,15 +402,7 @@ thead
 
 
 
-.modal-container
-{
-    
-    position: relative;
-    padding: 15px;
-    background-color: var(--branco);
-    margin: 5px 5px;
-    border:  1px solid #d3d3d3;
-}
+
 
 .modal-container label
 {
