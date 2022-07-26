@@ -7,7 +7,7 @@ function limparCampos()
     var status = document.querySelector('#ativo-modal')
     txtNome.value = ''
     txtCod.value = ''
-    status.removeAttribute('checked','checked')
+    status.setAttribute('checked','checked')
 }
 
 const getLocalStorage = () => JSON.parse(localStorage.getItem('db')) ?? [] 
@@ -43,12 +43,18 @@ const camposValidos = () =>
 
 const ativoModal = (evento) => 
 {
+    var ckstatus = document.querySelector('#ativo-modal')
     if(evento.target.checked == false)
     {
         var status = document.querySelector('#ativo-modal').dataset.status = 'nativo'
+        ckstatus.removeAttribute('checked','')
+        // console.log(ckstatus);
+        
     }else
     {
         var status = document.querySelector('#ativo-modal').dataset.status = 'ativo'
+        ckstatus.setAttribute('checked','checked')
+        // console.log(ckstatus);
     }
 }
 
@@ -69,7 +75,7 @@ function adicionarCaixa()
         if(index == 'new')
         {
             addDados(reg)
-            limparCampos()
+            // limparCampos()
         }else
         {
             alterarDados(index,reg)
@@ -129,21 +135,23 @@ function exbir()
 
 function preencherCampos(reg)
 {
+    document.querySelector('#txtcod').dataset.index = reg.index
     var txtCod = document.querySelector('#txtcod')
     var txtNome = document.querySelector('#txtnome')
-    var checkStatus = document.querySelector("#ativo-modal")
-    document.querySelector('#txtcod').dataset.index = reg.index
     txtCod.value = reg.codigo
     txtNome.value = reg.nome
-    if(reg.status == 'nativo')
+    var checkStatus = document.querySelector("#ativo-modal")
+    var status = document.querySelector('#ativo-modal').dataset.status = reg.status
+    if(status == 'nativo')
     {
-        console.log('aaa ' + reg.index);
+        // console.log('index-nativo:' + reg.index);
         checkStatus.removeAttribute('checked','checked')
     }
-    else if (reg.status == 'ativo')
+    else if (status == 'ativo')
     {
-        console.log('aaa ' + reg.index);
+        // console.log('index-ativo: ' + reg.index);
         checkStatus.setAttribute('checked','checked')
+        // console.log(checkStatus);
     }
 }
 
@@ -181,7 +189,6 @@ function nomeAba(index)
     </button>`
 }
 
-
 function iniciaModal()
 {
     const modal = document.getElementById('modal-add')
@@ -192,12 +199,15 @@ function iniciaModal()
 
     function fechar(evento) 
     {
-        if(evento.target.id == 'fechar' || aba.target.id == 'fechar' || evento.target.id == 'gravar')
+        console.log(camposValidos());
+        console.log('evento:' + evento.target.id);
+        if(evento.target.id == 'fechar' || aba.target.id == 'fechar' || (evento.target.id == 'gravar' && camposValidos()) )
         {
+            console.log('passou');
             modal.classList.remove('mostrar')
             aba.style.display = 'none'
-            exbir()
             limparCampos()
+            exbir()
             aba.innerHTML = 'Novo Caixa' + ' ' + `<button  id="fechar">
             <i class="fa-solid fa-xmark fa-1x white-icon"></i>
             </button>`
@@ -205,17 +215,17 @@ function iniciaModal()
     } 
 }
 
-
-
-
 document.querySelector('#gravar').addEventListener('click',adicionarCaixa)//modal
 
 document.querySelector('#corpotable').addEventListener('click',removerAlterar)
 
 document.querySelector('#add').addEventListener('click',iniciaModal)//botao de adicionar da modal
 
-document.querySelector('#atualizar').addEventListener('click',atualizar = () => {
+document.querySelector('#atualizar').addEventListener('click',atualizar = () => 
+    {
+        
+        location.reload()
         exbir()
-      })
+    })
 
 document.querySelector('#ativo-modal').addEventListener('click',ativoModal)

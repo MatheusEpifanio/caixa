@@ -8,10 +8,8 @@
     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
     <title>Caixas</title>
-    
 </head>
 <body>
-    
         <header>
             <div id="area-menu">
                 <div id="menu">
@@ -27,35 +25,30 @@
                                 <a href="teste.html">teste</a>
                             </li>
                         </ul>
-                        
-                        </a> 
                     </nav>
                 </div>
             </div>
         </header>
-        
         <div id="area-pesq">
-                
-                <div id="pesq">
-                    <button id="add" >
-                        <i class="fa-solid fa-circle-plus fa-lg green-icon"></i></button>
-                    <button id="atualizar">
-                        <i class="fa-solid fa-rotate fa-lg"></i>
-                    </button>
-                    <button>
-                        <i class="fa-solid fa-arrow-rotate-left fa-lg"></i>
-                    </button>
-                    <div id="center">
-                            <input type="search" name="" id="">
-                            <button>
-                                 <i class="fa-solid fa-magnifying-glass"></i>
-                                </button>    
-                        </div>     
-                        <input type="checkbox" name="" id="ativo">
-                        <label for="ativo">Somente ativos</label>
-                    </div>
+            <div id="pesq">
+                <button id="add" >
+                    <i class="fa-solid fa-circle-plus fa-lg green-icon"></i></button>
+                <button id="atualizar">
+                    <i class="fa-solid fa-rotate fa-lg"></i>
+                </button>
+                <button>
+                    <i class="fa-solid fa-arrow-rotate-left fa-lg"></i>
+                </button>
+                <div id="center">
+                        <input type="search" name="" id="">
+                        <button>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>    
+                </div>     
+                    <input type="checkbox" name="" id="ativo">
+                    <label for="ativo">Somente ativos</label>
             </div>
-
+        </div>
             <div class="container">
                 <div class="borda">   
                     <table>
@@ -69,29 +62,21 @@
                                     <th id = "id" scope="col">ID</th>
                                 </tr>
                             </thead>
-                            <tbody id="corpotable" >
-
-                            
-                            
+                            <tbody id="corpotable">
                             </tbody>
                         </table>
-
                 </div>
             </div>
-       
-
             <div class="modal-add" id="modal-add">
                 <div class="modal-container">
                     <div class="modal-form">
                         <form id="form">
                                 <label for="btn-cod">Código</label><br><input type="text" id="txtcod" data-index="new" required>
-                                <label for="txtnome">Nome</label><input type="text" id="txtnome" required>
-                                        
+                                <label for="txtnome">Nome</label><input type="text" id="txtnome" required>   
                             <div class="flexbox-r margin-top-5px">
-                                <input type="checkbox" id="ativo-modal"  data-status="ativo"><label for="ativo-modal">Ativo</label>
+                                <input type="checkbox" id="ativo-modal"  data-status="ativo" checked><label for="ativo-modal">Ativo</label>
                             </div>
                         </form> 
-                    
                     </div>
                     <div class="flexbox-r margin-top-10px input-add">
                         <br><input type="text"> 
@@ -99,25 +84,19 @@
                     </div>
                     <!-- ---------------------------TABELA--------------------------- -->
                     <div class="margin-top-10px">
-                        
                         <table >
                             <thead>
                                 <tr>
-                                    
                                     <th id = "exluir" scope="col">Exluir</th>
                                     <th id = "nome" scope="col">Nome</th>
-                                    
-                                    
                                 </tr>
                             </thead>
                             <tbody id="exibir">
-
                             </tbody>
                         </table>
                     
                     </div> 
                     <!-- ---------------------------TABELA------------------------- -->
-                   
                 </div>
                 <div class="footer-modal">
                     <div class="input-footer">
@@ -126,15 +105,14 @@
                     </div>
                 </div>
             </div>
-        
-    
-    <script
-      src="https://code.jquery.com/jquery-3.6.0.min.js"
-      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-      crossorigin="anonymous"
-    ></script>
+  
     <script src="js.js"></script>
     <!-- <script src="js-index.js"></script> -->
+      <!-- <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"
+    ></script> -->
 
 </body>
 </html>

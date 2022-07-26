@@ -6,6 +6,7 @@
 --fundo-main:rgb(240, 240, 240);
 --branco: white;
 --menu: #28465b;
+
 }
 *
 {
@@ -27,13 +28,10 @@ body
     
 }
 
-
-
 a
 {
     text-decoration: none;
 }
-
 
 .font-weight
 {
@@ -147,7 +145,6 @@ input[type= "search"],input[type= "text"]
 
 }
 
-
 ul li
 {
 
@@ -248,9 +245,6 @@ ul li a
 
 /* -------------CONTEÚDO TABELA------------- */
 
-
-
-
 table
 {
     width: 100%;
@@ -332,7 +326,6 @@ thead
 
 /* -------------MODAL------------- */
 
-
 .modal-add
 {
   
@@ -348,9 +341,6 @@ thead
     /* border: 1px solid red; */
   
 }
-
-
-
 
 .modal-add.mostrar
 {
@@ -381,9 +371,6 @@ thead
     }
 }
 
-
-
-
 .motstrar .modal-container
 {
      animation: add-animation .100s; /*está chamando a aimação criada */
@@ -393,16 +380,8 @@ thead
     padding: 8px 10px 8px 10px;
     border:  1px solid #d3d3d3;
     border-radius: 3px;
-    font-size: 12px;
-    
+    font-size: 12px; 
 }
-
-
-
-
-
-
-
 
 .modal-container label
 {
@@ -415,7 +394,6 @@ thead
     width: 100%;
     border:  1px solid #d3d3d3;
     border-radius: 3px;
-    
 }
 
 .input-add input[type = 'text']
@@ -429,7 +407,6 @@ thead
     bottom: 0px;
     background-color: white;
     width: 100%;
-    
 }
 
 .input-footer
