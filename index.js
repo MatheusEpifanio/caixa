@@ -208,9 +208,10 @@ function nomeAba(index)
     </button>`
 }
 
-
 function iniciaModal()
 {
+    const status = document.querySelector('#ativo-modal')
+    status.checked = true
     const modal = document.getElementById('modal-add')
     const aba = document.getElementById('newcaixa')
     aba.style.display = 'inline-block'
@@ -231,19 +232,32 @@ function iniciaModal()
     } 
 }
 
-// function somenteAtivo()
-// {
-//     const dbCaixa = getLocalStorage()
-//     for(var c = 0;c <= dbCaixa.lenght;c++)
-//         if(dbCaixa[c].status == 'ativo')
-//         {
-//             console.log(c);
-//             criarItem(dbCaixa,dbCaixa[c].index)
-//         }
-    
-// }
+function somenteAtivo(evento)
+{
+    const dbCaixa = getLocalStorage()
+    const ckSomenteAtivo = document.querySelector('#somente-ativo')
+    console.log(ckSomenteAtivo.checked == true);
+    if(ckSomenteAtivo.checked == true)
+    {
+        updateTable()
+        for(var c = 0;c < dbCaixa.length;c++)
+        {
+            if(dbCaixa[c].status == 'ativo')
+            {
 
-// document.querySelector('#somente-ativo').addEventListener('click',somenteAtivo)
+                console.log(dbCaixa[c]);
+                criarItem(dbCaixa[c],c)
+            }
+            
+        }
+    }
+    else
+    {
+        exbir()
+    }
+}
+
+document.querySelector('#somente-ativo').addEventListener('click',somenteAtivo)
 
 document.querySelector('#gravar').addEventListener('click',adicionarCaixa)//modal
 
