@@ -38,7 +38,14 @@ function deleteDados(index)
 
 const camposValidos = () =>
 {
-    return document.getElementById('form').reportValidity()
+    var txtCod =  document.querySelector('#txtcod').value
+    var txtNome = document.querySelector('#txtnome').value
+    if(txtCod != 0 && txtNome != 0)
+    {
+        return true
+    }
+    return false
+    
 }
 
 const ativoModal = (evento) => 
@@ -58,7 +65,7 @@ const ativoModal = (evento) =>
     }
 }
 
-function adicionarCaixa()
+function adicionarCaixa(evento)
 {   
     if(camposValidos())
     {
@@ -81,6 +88,18 @@ function adicionarCaixa()
             alterarDados(index,reg)
             exbir()
         }
+    }
+    else
+    {
+        document.querySelector('#modal-fechar').addEventListener('click',modalValidacao = (evento) =>
+        {
+            const modalFechar = document.getElementById('modal-fechar')
+            modalFechar.classList.add('mostrar')
+            if(evento.target.id == 'fechar-validacao')
+            {
+                modalFechar.classList.remove('mostrar')
+            }
+        });modalValidacao(evento)
     }
 }
 
@@ -189,21 +208,18 @@ function nomeAba(index)
     </button>`
 }
 
+
 function iniciaModal()
 {
     const modal = document.getElementById('modal-add')
     const aba = document.getElementById('newcaixa')
     aba.style.display = 'inline-block'
     modal.classList.add('mostrar') 
-    modal.addEventListener('click',fechar)
-
+    modal.addEventListener('click',fechar)//passa o evento para a funcao fechar
     function fechar(evento) 
     {
-        console.log(camposValidos());
-        console.log('evento:' + evento.target.id);
-        if(evento.target.id == 'fechar' || aba.target.id == 'fechar' || (evento.target.id == 'gravar' && camposValidos()) )
+        if(evento.target.id == 'fechar-footer' || aba.target.id == 'fechar' || (evento.target.id == 'gravar' && camposValidos()))
         {
-            console.log('passou');
             modal.classList.remove('mostrar')
             aba.style.display = 'none'
             limparCampos()
@@ -214,6 +230,20 @@ function iniciaModal()
         }
     } 
 }
+
+// function somenteAtivo()
+// {
+//     const dbCaixa = getLocalStorage()
+//     for(var c = 0;c <= dbCaixa.lenght;c++)
+//         if(dbCaixa[c].status == 'ativo')
+//         {
+//             console.log(c);
+//             criarItem(dbCaixa,dbCaixa[c].index)
+//         }
+    
+// }
+
+// document.querySelector('#somente-ativo').addEventListener('click',somenteAtivo)
 
 document.querySelector('#gravar').addEventListener('click',adicionarCaixa)//modal
 

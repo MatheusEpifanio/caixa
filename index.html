@@ -10,108 +10,108 @@
     <title>Caixas</title>
 </head>
 <body>
-        <header>
-            <div id="area-menu">
-                <div id="menu">
-                    <nav>
-                        <ul>
-                            <li><a href="#caixa">Caixas</a></li>
-                            <li><a id="newcaixa" href="">Novo Caixa 
-                                <button  id="fechar">
-                                    <i class="fa-solid fa-xmark fa-1x white-icon"></i>
-                                </button>
-                            </li>
-                            <li style="display:none">
-                                <a href="teste.html">teste</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div id="area-pesq">
-            <div id="pesq">
-                <button id="add" >
-                    <i class="fa-solid fa-circle-plus fa-lg green-icon"></i></button>
-                <button id="atualizar">
-                    <i class="fa-solid fa-rotate fa-lg"></i>
-                </button>
-                <button>
-                    <i class="fa-solid fa-arrow-rotate-left fa-lg"></i>
-                </button>
-                <div id="center">
-                        <input type="search" name="" id="">
-                        <button>
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                        </button>    
-                </div>     
-                    <input type="checkbox" name="" id="ativo">
-                    <label for="ativo">Somente ativos</label>
+    <header>
+        <div id="area-menu">
+            <div id="menu">
+                <nav>
+                    <ul>
+                        <li><a href="#caixa">Caixas</a></li>
+                        <li><a id="newcaixa" href="">Novo Caixa <button id="fechar"><i class="fa-solid fa-xmark fa-1x white-icon"></i></button></a></li>
+                        <li style="display:none">
+                        <a href="teste.html">teste</a></li>
+                    </ul>
+                </nav>
             </div>
         </div>
-            <div class="container">
-                <div class="borda">   
-                    <table>
-                            <thead>
-                                <tr>
-                                    <th id ="alterar"scope="col">Alterar</th>
-                                    <th id = "exluir" scope="col">Exluir</th>
-                                    <th id = "codigo" scope="col">Código</th>
-                                    <th id = "nome" scope="col">Nome</th>
-                                    <th id = "status" scope="col">Status</th>
-                                    <th id = "id" scope="col">ID</th>
-                                </tr>
-                            </thead>
-                            <tbody id="corpotable">
-                            </tbody>
-                        </table>
+    </header>
+    <div id="area-pesq">
+        <div id="pesq">
+            <button id="add" ><i class="fa-solid fa-circle-plus fa-lg green-icon"></i></button>
+            <button id="atualizar"><i class="fa-solid fa-rotate fa-lg"></i>
+            </button>
+            <button><i class="fa-solid fa-arrow-rotate-left fa-lg"></i></button>
+            <div id="center">
+                <input type="search" name="" id="">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>    
+            </div>     
+            <input type="checkbox" name="" id="somente-ativo" checked>
+            <label for="somente-ativo">Somente ativos</label>
+        </div>
+    </div>
+    <div class="container">
+        <div class="borda">   
+            <table>
+                <thead>
+                    <tr>
+                        <th id ="alterar"scope="col">Alterar</th>
+                        <th id = "exluir" scope="col">Exluir</th>
+                        <th id = "codigo" scope="col">Código</th>
+                        <th id = "nome" scope="col">Nome</th>
+                        <th id = "status" scope="col">Status</th>
+                        <th id = "id" scope="col">ID</th>
+                    </tr>
+                </thead>
+                <tbody id="corpotable">
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-add" id="modal-add">
+        <div class="modal-fechar" id="modal-fechar">
+            <div class="modal-fechar-container">
+                <div class="content-modal-fechar">
+                    <h2 class="center-text">Aviso</h2>                
+                    <p>Dados preenchidos inválidos</p>
+                    <button type="button" id="fechar-validacao">OK</button>
                 </div>
             </div>
-            <div class="modal-add" id="modal-add">
-                <div class="modal-container">
-                    <div class="modal-form">
-                        <form id="form">
-                                <label for="btn-cod">Código</label><br><input type="text" id="txtcod" data-index="new" required>
-                                <label for="txtnome">Nome</label><input type="text" id="txtnome" required>   
-                            <div class="flexbox-r margin-top-5px">
-                                <input type="checkbox" id="ativo-modal"  data-status="ativo" checked><label for="ativo-modal">Ativo</label>
-                            </div>
-                        </form> 
+        </div> 
+        <div class="modal-container">
+            <div class="modal-form">
+                <form id="form">
+                        <label for="btn-cod">Código</label><br><input type="text" id="txtcod" data-index="new" required>
+                        <label for="txtnome">Nome</label><input type="text" id="txtnome" required>   
+                    <div class="flexbox-r margin-top-5px">
+                        <input type="checkbox" id="ativo-modal"  data-status="ativo" checked><label for="ativo-modal">Ativo</label>
                     </div>
-                    <div class="flexbox-r margin-top-10px input-add">
-                        <br><input type="text"> 
-                        <button class="botao-verde" id="add-tab" >Adicionar</button>
-                    </div>
-                    <!-- ---------------------------TABELA--------------------------- -->
-                    <div class="margin-top-10px">
-                        <table >
-                            <thead>
-                                <tr>
-                                    <th id = "exluir" scope="col">Exluir</th>
-                                    <th id = "nome" scope="col">Nome</th>
-                                </tr>
-                            </thead>
-                            <tbody id="exibir">
-                            </tbody>
-                        </table>
-                    
-                    </div> 
-                    <!-- ---------------------------TABELA------------------------- -->
-                </div>
-                <div class="footer-modal">
-                    <div class="input-footer">
-                        <button id ="gravar" class="botao-verde">Gravar</button>
-                        <button id=fechar class="button-closemodal">Fechar</button>
-                    </div>
-                </div>
+                </form> 
             </div>
-  
-    <script src="js.js"></script>
+            <div class="flexbox-r margin-top-10px input-add">
+                <br><input type="text"> 
+                <button class="botao-verde" id="add-tab" >Adicionar</button>
+            </div>
+                <!-- ---------------------------TABELA--------------------------- -->
+            <div class="margin-top-10px borda-table">
+                <table >
+                    <thead>
+                        <tr>
+                            <th id = "exluir" scope="col">Exluir</th>
+                            <th id = "nome" scope="col">Nome</th>
+                        </tr>
+                    </thead>
+                    <tbody id="exibir">
+                        <tr>
+                            <td class="center-text"><button class="fa-solid fa-trash-can"></button></td>
+                            <td>teste</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <!-- ---------------------------TABELA------------------------- -->                  
+        </div>
+        <div class="footer-modal">
+            <div class="input-footer">
+                <button id ="gravar" class="botao-verde">Gravar</button>
+                <button id= "fechar-footer" class="button-closemodal">Fechar</button>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
     <!-- <script src="js-index.js"></script> -->
-      <!-- <script
-        src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-        crossorigin="anonymous"
+    <!-- <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
     ></script> -->
 
 </body>
