@@ -1,4 +1,29 @@
 //remover  o exibir e colocar para atualizar, só para mostrar a função do botão ou colocar no alterar
+const getLocalStorage = () => JSON.parse(localStorage.getItem('db')) ?? [] 
+
+const setLocalStorage = (dbCaixa) => localStorage.setItem('db',JSON.stringify(dbCaixa))
+
+
+function linhaSelecionada(evento) 
+{
+    var element = evento.target.parentNode
+    var index = evento.target.parentNode.id
+    var oldIndex = index
+    if(oldIndex == index)
+    {
+        element.classList.toggle('selecionado')
+        
+    }
+    else
+    {
+        element.classList.remove('selecionado')
+    } 
+}
+
+function selLinha(linha)
+{
+    linha.classList.toggle('selecionado')
+}
 
 function limparCampos()
 {
@@ -9,10 +34,6 @@ function limparCampos()
     txtCod.value = ''
     status.setAttribute('checked','checked')
 }
-
-const getLocalStorage = () => JSON.parse(localStorage.getItem('db')) ?? [] 
-
-const setLocalStorage = (dbCaixa) => localStorage.setItem('db',JSON.stringify(dbCaixa))
 
 exbir()
 function addDados(reg)
@@ -48,23 +69,6 @@ const camposValidos = () =>
     
 }
 
-const ativoModal = (evento) => 
-{
-    var ckstatus = document.querySelector('#ativo-modal')
-    if(evento.target.checked == false)
-    {
-        var status = document.querySelector('#ativo-modal').dataset.status = 'nativo'
-        ckstatus.removeAttribute('checked','')
-        // console.log(ckstatus);
-        
-    }else
-    {
-        var status = document.querySelector('#ativo-modal').dataset.status = 'ativo'
-        ckstatus.setAttribute('checked','checked')
-        // console.log(ckstatus);
-    }
-}
-
 function adicionarCaixa(evento)
 {   
     if(camposValidos())
@@ -81,6 +85,8 @@ function adicionarCaixa(evento)
         const index = document.querySelector('#txtcod').dataset.index
         if(index == 'new')
         {
+            var ckstatus = document.querySelector('#ativo-modal')
+            
             addDados(reg)
             // limparCampos()
         }else
@@ -109,7 +115,7 @@ function criarItem(reg,index)
     if(reg.status == 'ativo')
     {
         corpoTable.insertAdjacentHTML('afterbegin',
-        `<tr id="linha-${index}">
+        `<tr id="${index}">
             <td id ="alterar"class="center-text">
                 <button type="button" id="alterar-${index}"class="fa-solid fa-pen-to-square black-icon"></button>
             </td>
@@ -124,7 +130,7 @@ function criarItem(reg,index)
     }else
     {
     corpoTable.insertAdjacentHTML('afterbegin',
-        `<tr id="linha-${index}">
+        `<tr id="${index}">
             <td id ="alterar"class="center-text">
                 <button type="button" id="alterar-${index}"class="fa-solid fa-pen-to-square black-icon"></button>
             </td>
@@ -199,44 +205,27 @@ function removerAlterar(evento)
     }
 }
 
-function nomeAba(index)
+const ativoModal = (evento) => 
 {
-    var aba = document.querySelector('#newcaixa')
-    const dbCaixa = getLocalStorage()[index]
-    aba.innerHTML = dbCaixa.nome + ' ' + `<button  id="fechar">
-    <i class="fa-solid fa-xmark fa-1x white-icon"></i>
-    </button>`
-}
-
-function iniciaModal()
-{
-    const status = document.querySelector('#ativo-modal')
-    status.checked = true
-    const modal = document.getElementById('modal-add')
-    const aba = document.getElementById('newcaixa')
-    aba.style.display = 'inline-block'
-    modal.classList.add('mostrar') 
-    modal.addEventListener('click',fechar)//passa o evento para a funcao fechar
-    function fechar(evento) 
+    var ckstatus = document.querySelector('#ativo-modal')
+    if(evento.target.checked == false)
     {
-        if(evento.target.id == 'fechar-footer' || aba.target.id == 'fechar' || (evento.target.id == 'gravar' && camposValidos()))
-        {
-            modal.classList.remove('mostrar')
-            aba.style.display = 'none'
-            limparCampos()
-            exbir()
-            aba.innerHTML = 'Novo Caixa' + ' ' + `<button  id="fechar">
-            <i class="fa-solid fa-xmark fa-1x white-icon"></i>
-            </button>`
-        }
-    } 
+        var status = document.querySelector('#ativo-modal').dataset.status = 'nativo'
+        ckstatus.removeAttribute('checked','')
+        // console.log(ckstatus);
+        
+    }else
+    {
+        var status = document.querySelector('#ativo-modal').dataset.status = 'ativo'
+        ckstatus.setAttribute('checked','checked')
+        // console.log(ckstatus);
+    }
 }
 
 function somenteAtivo(evento)
 {
     const dbCaixa = getLocalStorage()
     const ckSomenteAtivo = document.querySelector('#somente-ativo')
-    console.log(ckSomenteAtivo.checked == true);
     if(ckSomenteAtivo.checked == true)
     {
         updateTable()
@@ -244,8 +233,6 @@ function somenteAtivo(evento)
         {
             if(dbCaixa[c].status == 'ativo')
             {
-
-                console.log(dbCaixa[c]);
                 criarItem(dbCaixa[c],c)
             }
             
@@ -257,11 +244,52 @@ function somenteAtivo(evento)
     }
 }
 
+function nomeAba(index)
+{
+    var aba = document.querySelector('#newcaixa')
+    const dbCaixa = getLocalStorage()[index]
+    aba.innerHTML = dbCaixa.nome + ' ' + `<button  id="fechar">
+    <i class="fa-solid fa-xmark fa-1x white-icon"></i>
+    </button>`
+
+}
+
+function iniciaModal()
+{
+    const status = document.querySelector('#ativo-modal')
+    const modal = document.getElementById('modal-add')
+    const aba = document.getElementById('newcaixa')
+    aba.style.display = 'inline-block'
+    modal.classList.add('mostrar') 
+    modal.addEventListener('click',fechar)//passa o evento para a funcao fechar
+    document.querySelector('#caixa-teste').addEventListener('click',trocarAba)
+    function trocarAba()
+    {
+        modal.classList.remove('mostrar')
+    }
+    function fechar(evento) 
+    {
+        if(evento.target.id == 'fechar-footer' || aba.target.id == 'fechar' || (evento.target.id == 'gravar' && camposValidos()))
+        {
+            modal.classList.remove('mostrar')
+            aba.style.display = 'none'
+            limparCampos()
+            exbir()
+            aba.innerHTML = 'Novo Caixa' + ' ' + `<button  id="fechar">
+            <i class="fa-solid fa-xmark fa-1x white-icon"></i>
+            </button>`
+            status.checked = true
+        }
+    } 
+}
+
 document.querySelector('#somente-ativo').addEventListener('click',somenteAtivo)
 
 document.querySelector('#gravar').addEventListener('click',adicionarCaixa)//modal
 
 document.querySelector('#corpotable').addEventListener('click',removerAlterar)
+
+document.querySelector('#corpotable').addEventListener('click',linhaSelecionada)
 
 document.querySelector('#add').addEventListener('click',iniciaModal)//botao de adicionar da modal
 
@@ -273,3 +301,4 @@ document.querySelector('#atualizar').addEventListener('click',atualizar = () =>
     })
 
 document.querySelector('#ativo-modal').addEventListener('click',ativoModal)
+
